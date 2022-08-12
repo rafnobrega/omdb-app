@@ -2,86 +2,44 @@ import { useEffect, useState } from "react";
 import MovieList from "./components/MovieList";
 import "./App.css";
 import { Container, Grid, Card } from "@mui/material";
+import SearchBar from "./components/SearchBar";
+import Header from "./components/Header";
 
 function App() {
-  const [movies, setMovies] = useState([
-    {
-      Title: "Trainspotting",
-      Year: "1996",
-      imdbID: "tt0117951",
-      Type: "movie",
-      Poster:
-        "https://m.media-amazon.com/images/M/MV5BMzA5Zjc3ZTMtMmU5YS00YTMwLWI4MWUtYTU0YTVmNjVmODZhXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
-    },
-    {
-      Title: "T2 Trainspotting",
-      Year: "2017",
-      imdbID: "tt2763304",
-      Type: "movie",
-      Poster:
-        "https://m.media-amazon.com/images/M/MV5BMjI0MTE1ODkzMl5BMl5BanBnXkFtZTgwMTQ1MTg5MDI@._V1_SX300.jpg",
-    },
-    {
-      Title: "T2 Trainspotting",
-      Year: "2017",
-      imdbID: "tt2763304",
-      Type: "movie",
-      Poster:
-        "https://m.media-amazon.com/images/M/MV5BMjI0MTE1ODkzMl5BMl5BanBnXkFtZTgwMTQ1MTg5MDI@._V1_SX300.jpg",
-    },
-    {
-      Title: "T2 Trainspotting",
-      Year: "2017",
-      imdbID: "tt2763304",
-      Type: "movie",
-      Poster:
-        "https://m.media-amazon.com/images/M/MV5BMjI0MTE1ODkzMl5BMl5BanBnXkFtZTgwMTQ1MTg5MDI@._V1_SX300.jpg",
-    },
-    {
-      Title: "T2 Trainspotting",
-      Year: "2017",
-      imdbID: "tt2763304",
-      Type: "movie",
-      Poster:
-        "https://m.media-amazon.com/images/M/MV5BMjI0MTE1ODkzMl5BMl5BanBnXkFtZTgwMTQ1MTg5MDI@._V1_SX300.jpg",
-    },
-    {
-      Title: "T2 Trainspotting",
-      Year: "2017",
-      imdbID: "tt2763304",
-      Type: "movie",
-      Poster:
-        "https://m.media-amazon.com/images/M/MV5BMjI0MTE1ODkzMl5BMl5BanBnXkFtZTgwMTQ1MTg5MDI@._V1_SX300.jpg",
-    },
-    {
-      Title: "T2 Trainspotting",
-      Year: "2017",
-      imdbID: "tt2763304",
-      Type: "movie",
-      Poster:
-        "https://m.media-amazon.com/images/M/MV5BMjI0MTE1ODkzMl5BMl5BanBnXkFtZTgwMTQ1MTg5MDI@._V1_SX300.jpg",
-    },
-  ]);
+  const [movies, setMovies] = useState([]);
+  const [searchInput, setSearchInput] = useState("");
 
-  const getMovie = async () => {
-    const url = `http://www.omdbapi.com/?s=trainspotting&apikey=bf749c16`;
+  const getMovies = async (searchInput) => {
+    const url = `http://www.omdbapi.com/?s=${searchInput}&apikey=bf749c16`;
     const response = await fetch(url);
     const convertedResponse = await response.json();
-    console.log(convertedResponse);
+
+    // Only add the response to the state if there is one or more search results
+    if (convertedResponse.Search) {
+      setMovies(convertedResponse.Search);
+    }
   };
 
-  // In this case, the useEffect will have the getMovie function called only when the page is load, hence the empty dependency []
+  // In this case, when the searchInput changes, we want to run the getMovies function and trigger the useEffect hook
   useEffect(() => {
-    getMovie();
-  }, []);
+    getMovies(searchInput);
+  }, [searchInput]);
 
   return (
     <>
-      <Grid item xs={12} sm={6}>
-        {/* <Card elevation={4} sx={{ display: "flex", padding: "10px" }}> */}
-        <MovieList movies={movies} />
-        {/* </Card> */}
-      </Grid>
+      <Container
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          width: "90vw",
+        }}
+      >
+        <Header heading="Movies" />
+        <SearchBar searchInput={searchInput} setSearchInput={setSearchInput} />
+      </Container>
+      <MovieList movies={movies} />
     </>
   );
 }
