@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import MovieList from "./components/MovieList";
 import "./App.css";
 import { Container, Grid, Card } from "@mui/material";
-import SearchBar from "./components/SearchBar";
-import Header from "./components/Header";
+import Navbar from "./components/Navbar";
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -36,8 +35,7 @@ function App() {
           width: "90vw",
         }}
       >
-        <Header heading="Movies" />
-        <SearchBar searchInput={searchInput} setSearchInput={setSearchInput} />
+        <Navbar searchInput={searchInput} setSearchInput={setSearchInput} />
       </Container>
       <MovieList movies={movies} />
     </>

@@ -22,7 +22,21 @@ const MovieList = (props) => {
         }}
       >
         {props.movies.map((movie, index) => (
-          <Card>
+          <Card
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            flexWrap: "wrap",
+            marginLeft: "auto",
+            marginRight: "auto",
+            justifyContent: "center",
+            alignItems: "center",
+            width: "300px",
+            minHeight: "350px",
+            mt: "20px",
+            
+          }}
+          >
             <CardMedia
               key={index}
               component="img"
