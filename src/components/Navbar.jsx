@@ -8,16 +8,13 @@ import SearchIcon from "@mui/icons-material/Search";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: "alpha(theme.palette.common.white, 0.15)",
+  borderRadius: "5px",
+  backgroundColor: "#232323",
   "&:hover": {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
+    backgroundColor: "#3a3a3a",
   },
-  marginRight: theme.spacing(2),
-  marginLeft: 0,
   width: "100%",
   [theme.breakpoints.up("sm")]: {
-    marginLeft: theme.spacing(3),
     width: "auto",
   },
 }));
@@ -60,7 +57,13 @@ const Navbar = (props) => {
           backgroundColor: "#6b0000",
         }}
       >
-        <Toolbar sx={{ justifyContent: "space-between" }}>
+        <Toolbar
+          sx={{
+            justifyContent: "space-between",
+            marginLeft: "50px",
+            marginRight: "50px",
+          }}
+        >
           <Typography
             variant="h6"
             noWrap
@@ -78,7 +81,7 @@ const Navbar = (props) => {
               onChange={(event) => {
                 props.setSearchInput(event.target.value);
               }}
-              placeholder="Search movie title here…"
+              placeholder="Search title..."
               inputProps={{ "aria-label": "search" }}
             />
           </Search>

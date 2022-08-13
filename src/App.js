@@ -9,7 +9,9 @@ function App() {
   const [searchInput, setSearchInput] = useState("");
 
   const getMovies = async (searchInput) => {
-    const url = `http://www.omdbapi.com/?s=${searchInput}&apikey=bf749c16`;
+    // We need to add "type=movie" to the url query so it only returns movies, otherwise we also get games and other types
+    const url = `http://www.omdbapi.com/?s=${searchInput}&type=movie&apikey=bf749c16`;
+
     const response = await fetch(url);
     const convertedResponse = await response.json();
 
