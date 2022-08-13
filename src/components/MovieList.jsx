@@ -1,6 +1,7 @@
 import { v4 as uuidv4 } from "uuid";
 import { Card, Paper, Typography } from "@mui/material";
 import MovieCard from "./MovieCard";
+import MoviePagination from "./MoviePagination";
 
 const MovieList = (props) => {
   return (
@@ -23,6 +24,11 @@ const MovieList = (props) => {
           background: "#dfdfdf",
         }}
       >
+        <MoviePagination
+          numberOfPages={props.numberOfPages}
+          currentPage={props.currentPage}
+          setCurrentPage={props.setCurrentPage}
+        />
         <Typography
           variant="h5"
           sx={{
