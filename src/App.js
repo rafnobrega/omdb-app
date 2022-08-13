@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import MovieList from "./components/MovieList";
+import { Container } from "@mui/material";
 import "./App.css";
-import { Container, Grid, Card } from "@mui/material";
+import MovieList from "./components/MovieList";
 import Navbar from "./components/Navbar";
 
 function App() {
@@ -10,11 +10,11 @@ function App() {
 
   const getMovies = async (searchInput) => {
     // We need to add "type=movie" to the url query so it only returns movies, otherwise we also get games and other types
-    const url = `http://www.omdbapi.com/?s=${searchInput}&type=movie&apikey=bf749c16`;
+    const url = `http://www.omdbapi.com/?s=${searchInput}&type=movie&page=2&apikey=bf749c16`;
 
     const response = await fetch(url);
     const convertedResponse = await response.json();
-
+    console.log(convertedResponse);
     // Only add the response to the state if there is one or more search results
     if (convertedResponse.Search) {
       setMovies(convertedResponse.Search);

@@ -1,5 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
-import { Card, CardMedia, Paper, Typography } from "@mui/material";
+import { Card, Paper, Typography } from "@mui/material";
+import MovieCard from "./MovieCard";
 
 const MovieList = (props) => {
   return (
@@ -11,24 +12,25 @@ const MovieList = (props) => {
         key={uuidv4()}
         sx={{
           minHeight: "90vh",
-          width: "90vw",
+          width: "80vw",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           marginLeft: "auto",
           marginRight: "auto",
           marginTop: "60px",
+          marginBottom: "20px",
           background: "#dfdfdf",
         }}
       >
         <Typography
           variant="h5"
           sx={{
-            marginTop: "20px",
+            marginTop: "30px",
             background: "white",
             width: "300px",
             textAlign: "center",
-            borderRadius: "5px"
+            borderRadius: "5px",
           }}
         >
           🍿 {props.movies.length} movies found 🍿
@@ -41,39 +43,14 @@ const MovieList = (props) => {
             flexWrap: "wrap",
             marginLeft: "auto",
             marginRight: "auto",
+            marginTop: "20px",
+            marginBottom: "50px",
             background: "#dfdfdf",
-            mt: "50px",
+            boxShadow: "none",
           }}
         >
-          {props.movies.map((movie, index) => (
-            <Card
-              key={uuidv4()}
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                flexWrap: "wrap",
-                marginLeft: "auto",
-                marginRight: "auto",
-                justifyContent: "center",
-                alignItems: "center",
-                width: "300px",
-                minHeight: "350px",
-                mt: "20px",
-              }}
-            >
-              <CardMedia
-                component="img"
-                image={movie.Poster}
-                alt="movie-poster"
-                sx={{
-                  padding: "10px",
-                  width: "200px",
-                }}
-              />
-              <Typography>{movie.Title}</Typography>
-              <Typography>{movie.Year}</Typography>
-              <Typography>{movie.Type}</Typography>
-            </Card>
+          {props.movies.map((movie) => (
+            <MovieCard movie={movie} />
           ))}
         </Card>
       </Paper>
