@@ -22,12 +22,13 @@ const MovieList = (props) => {
           marginTop: "100px",
           marginBottom: "20px",
           background: "#dfdfdf",
+          padding: "20px"
         }}
       >
         <Typography
           variant="h5"
           sx={{
-            marginTop: "30px",
+            marginTop: "20px",
             background: "#232323",
             color: "white",
             fontSize: "1rem",
@@ -55,7 +56,6 @@ const MovieList = (props) => {
             marginLeft: "auto",
             marginRight: "auto",
             marginTop: "20px",
-            marginBottom: "50px",
             background: "#dfdfdf",
             boxShadow: "none",
           }}
