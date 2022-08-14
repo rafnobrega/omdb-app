@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Container } from "@mui/material";
 import "./App.css";
 import MovieList from "./components/MovieList";
 import Navbar from "./components/Navbar";
@@ -13,7 +12,7 @@ function App() {
 
   const getMovies = async (searchInput, currentPage, totalNumberOfMovies) => {
     // We need to add "type=movie" to the url query so it only returns movies, otherwise we also get games and other types
-    const url = `http://www.omdbapi.com/?s=${searchInput}&type=movie&page=${currentPage}&apikey=bf749c16`;
+    const url = `http://www.omdbapi.com/?s=${searchInput}&type=movie&page=${currentPage}&apikey=${process.env.REACT_APP_OMDB_KEY}`;
 
     const response = await fetch(url);
     const convertedResponse = await response.json();
@@ -27,6 +26,16 @@ function App() {
     }
   };
 
+  const clearSearch = () => {
+    setMovies([]);
+    setSearchInput("");
+    setNumberOfPages(1);
+    setCurrentPage(1);
+    setTotalNumberOfMovies(0);
+    // document.getElementById("search-value").setAttribute("value", "");
+    // window.location.reload(true);
+  };
+
   // In this case, when the searchInput changes, we want to run the getMovies function and trigger the useEffect hook
   useEffect(() => {
     getMovies(searchInput, currentPage, totalNumberOfMovies);
@@ -34,7 +43,11 @@ function App() {
 
   return (
     <>
-      <Navbar searchInput={searchInput} setSearchInput={setSearchInput} />
+      <Navbar
+        searchInput={searchInput}
+        setSearchInput={setSearchInput}
+        clearSearch={clearSearch}
+      />
       <MovieList
         totalNumberOfMovies={totalNumberOfMovies}
         movies={movies}

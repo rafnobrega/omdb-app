@@ -1,4 +1,5 @@
 import { styled } from "@mui/material/styles";
+import { Button } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -6,6 +7,7 @@ import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 import MovieFilterIcon from "@mui/icons-material/MovieFilter";
+import ClearIcon from "@mui/icons-material/Clear";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -74,8 +76,8 @@ const Navbar = (props) => {
               alignItems: "center",
             }}
           >
-            <MovieFilterIcon fontSize="large" />&nbsp;
-            Movie Database
+            <MovieFilterIcon fontSize="large" />
+            &nbsp; Movie Database
           </Typography>
 
           <Search>
@@ -83,6 +85,7 @@ const Navbar = (props) => {
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
+              id="search-value"
               value={props.value}
               onChange={(event) => {
                 props.setSearchInput(event.target.value);
@@ -90,6 +93,9 @@ const Navbar = (props) => {
               placeholder="Search title..."
               inputProps={{ "aria-label": "search" }}
             />
+            <Button className="materialBtn" onClick={props.clearSearch}>
+              <ClearIcon sx={{ color: "white" }} />
+            </Button>
           </Search>
         </Toolbar>
       </AppBar>
