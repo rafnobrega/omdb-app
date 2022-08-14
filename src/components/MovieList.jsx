@@ -3,11 +3,14 @@ import { Card, Paper, Typography } from "@mui/material";
 import MovieCard from "./MovieCard";
 import MoviePagination from "./MoviePagination";
 
+/* 
+💬 Remember that most keys from the OMDB Api objects have the first letter Capitalized (e.g. Poster). Documentation: http://www.omdbapi.com
+💬 Use the map function to display each movie from the array (props)
+💬 Use the uuid package to avoid warnings about unique keys
+*/
+
 const MovieList = (props) => {
   return (
-    // Remember that most keys from the OMDB Api objects have the first letter Capitalized (e.g. Poster)
-    // Use the map function to display each movie from the array (props)
-    // Use the uuid package to avoid warnings about unique keys
     <>
       {" "}
       <Paper
@@ -22,7 +25,7 @@ const MovieList = (props) => {
           marginTop: "100px",
           marginBottom: "20px",
           background: "#dfdfdf",
-          padding: "20px"
+          padding: "20px",
         }}
       >
         <Typography
