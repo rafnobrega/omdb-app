@@ -5,6 +5,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
+import MovieFilterIcon from "@mui/icons-material/MovieFilter";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -54,7 +55,7 @@ const Navbar = (props) => {
       <AppBar
         position="fixed"
         sx={{
-          backgroundColor: "#6b0000",
+          backgroundColor: "#efc944",
         }}
       >
         <Toolbar
@@ -68,10 +69,15 @@ const Navbar = (props) => {
             variant="h6"
             noWrap
             component="div"
-            sx={{ display: { xs: "none", sm: "block" } }}
+            sx={{
+              display: { xs: "none", sm: "flex", color: "#232323" },
+              alignItems: "center",
+            }}
           >
+            <MovieFilterIcon fontSize="large" />&nbsp;
             Movie Database
           </Typography>
+
           <Search>
             <SearchIconWrapper>
               <SearchIcon />

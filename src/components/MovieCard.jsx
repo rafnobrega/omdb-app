@@ -60,7 +60,11 @@ const MovieCard = ({ movie }) => {
         <Button
           sx={{
             marginBottom: "15px",
-            background: "#6b0000",
+            background: "#efc944",
+            color: "#232323",
+            "&:hover": {
+              background: "#ffde65",
+            },
           }}
           variant="contained"
           onClick={() => {
