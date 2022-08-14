@@ -63,8 +63,8 @@ const Navbar = (props) => {
         <Toolbar
           sx={{
             justifyContent: "space-between",
-            marginLeft: "50px",
-            marginRight: "50px",
+            marginLeft: "5vw",
+            marginRight: "5vw",
           }}
         >
           <Typography

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+import Footer from "./components/Footer";
 import MovieList from "./components/MovieList";
 import Navbar from "./components/Navbar";
 
@@ -58,6 +59,7 @@ function App() {
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
       />
+      <Footer />
     </>
   );
 }
