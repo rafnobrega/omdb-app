@@ -1,10 +1,8 @@
 import styled from "@emotion/styled";
-import { Box, Container, Link, Typography } from "@mui/material";
+import { Box, Link, Typography } from "@mui/material";
 import {
   FaGithub,
   FaLinkedin,
-  FaInstagram,
-  FaFacebook,
   FaFile,
 } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";

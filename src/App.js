@@ -36,8 +36,7 @@ function App() {
     setNumberOfPages(1);
     setCurrentPage(1);
     setTotalNumberOfMovies(0);
-    // document.getElementById("search-value").setAttribute("value", "");
-    // window.location.reload(true);
+    document.getElementById("search-value").value = "";
   };
 
   // 💬 In this case, when the searchInput changes, we want to run the getMovies function and trigger the useEffect hook
