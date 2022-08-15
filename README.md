@@ -19,8 +19,8 @@
 - OMDb API (http://www.omdbapi.com)
 <br/>
 <br/>
-## 🧰 &nbsp; How to Install:
 
+## 🧰 &nbsp; How to Install:
 
 ```
 git clone git@github.com:rafnobrega/omdb-app.git ombd-app
