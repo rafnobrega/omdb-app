@@ -1,5 +1,5 @@
 <h1>📽 Movie Database</h1>
-<h2>🍿 Search for your favorite movies!</h2>
+<h3>🍿 Search for your favorite movies!</h3>
 <br/>
 
 ## 🚀 &nbsp; Final Product
@@ -23,13 +23,13 @@
 ## 🧰 &nbsp; How to Install:
 
 ```
-git clone git@github.com:rafnobrega/omdb-app.git ombd-app
+git clone git@github.com:rafnobrega/omdb-app.git omdb-app
 ```
 
 ```
 npm install
 ```
-Copy the `.env.example`, rename it to `.env`, and modify the following key:
+Copy the `.env.example`, rename it to `.env`, and modify the following key with your OMDb key:
 ```
 REACT_APP_OMDB_KEY
 ```
