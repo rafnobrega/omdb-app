@@ -15,7 +15,7 @@ function App() {
   // 💬 Fetch movies from API:
   const getMovies = async (searchInput, currentPage, totalNumberOfMovies) => {
     // 💬 We need to add "type=movie" to the url query so it only returns movies, otherwise we also get games and other types.
-    const url = `http://www.omdbapi.com/?s=${searchInput}&type=movie&page=${currentPage}&apikey=bf749c16`;
+    const url = `http://www.omdbapi.com/?s=${searchInput}&type=movie&page=${currentPage}&apikey=${process.env.REACT_APP_OMDB_KEY}`;
 
     const response = await fetch(url);
     const convertedResponse = await response.json();
