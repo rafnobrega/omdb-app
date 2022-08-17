@@ -13,7 +13,7 @@ function App() {
   const [totalNumberOfMovies, setTotalNumberOfMovies] = useState(0);
 
   // 💬 Fetch movies from API:
-  const getMovies = async (searchInput, currentPage, totalNumberOfMovies) => {
+  const getMovies = async (searchInput, currentPage) => {
     // 💬 We need to add "type=movie" to the url query so it only returns movies, otherwise we also get games and other types.
     const url = `https://www.omdbapi.com/?s=${searchInput}&type=movie&page=${currentPage}&apikey=${process.env.REACT_APP_OMDB_KEY}`;
 
@@ -36,13 +36,13 @@ function App() {
     setNumberOfPages(1);
     setCurrentPage(1);
     setTotalNumberOfMovies(0);
-    document.getElementById("search-value").value = "";
+    document.getElementById("search-value").value = ""; // 🚨 I could use ref instead
   };
 
   // 💬 In this case, when the searchInput changes, we want to run the getMovies function and trigger the useEffect hook
   useEffect(() => {
     getMovies(searchInput, currentPage, totalNumberOfMovies);
-  }, [searchInput, currentPage, totalNumberOfMovies]);
+  }, [searchInput, currentPage, totalNumberOfMovies]); // 💬 Only re-run the effect if one of these values changes
 
   return (
     <>
